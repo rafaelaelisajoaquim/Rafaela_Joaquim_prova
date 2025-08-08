@@ -20,7 +20,7 @@
     $permissoes= [
         1 => ["Cadastrar"=>["cadastro_usuario.php","cadastro_perfil.php",
         "cadastro_cliente.php","cadastro_fornecedor.php","cadastro_produto.php",
-        "cadastro_funcionario.php"]],
+        "cadastro_funcionario.php"],
 
         "Buscar"=>["buscar_usuario.php","buscar_perfil.php",
         "buscar_cliente.php","buscar_fornecedor.php","buscar_produto.php",
@@ -32,7 +32,7 @@
 
         "Excluir"=>["excluir_usuario.php","excluir_perfil.php",
         "excluir_cliente.php","excluir_fornecedor.php","excluir_produto.php",
-        "excluir_funcionario.php"]];
+        "excluir_funcionario.php"]],
 
             2 => ["Cadastrar"=>["cadastro_cliente.php"]],
     
@@ -40,6 +40,6 @@
     
             "Alterar"=>["alterar_cliente.php","alterar_fornecedor.php","alterar_produto.php"],
 
-            "Excluir"=>["excluir_produto.php"];
+            "Excluir"=>["excluir_produto.php"],
     ]
 ?>
