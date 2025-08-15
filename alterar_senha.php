@@ -64,7 +64,7 @@
     <button type="submit">Salvar Nova Senha</button>
 </form>
     <script>
-        function mostrarSenha{
+        function mostrarSenha(){
         var senha1 = document.getElementById("nova_senha");
         var senha2 = document.getElementById("confirmar_senha");
         var tipo = senha1.type === "password" ? "text":"password";
