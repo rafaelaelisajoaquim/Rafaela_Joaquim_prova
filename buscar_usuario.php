@@ -38,6 +38,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuário</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+    }
+
+    table {
+        background-color:#b6e9fd;
+        border-radius: 10px;
+        padding: 8px 15px;
+        margin: 0 auto;
+        margin:20px auto;
+        border-collapse: collapse;
+        overflow: hidden;
+        width: 50%;
+    }
+
+    th, td, tr {
+        text-align: center;
+        padding: 12px;
+    }
+
+    th {
+        background-color:rgb(119, 173, 238);
+    }
+    
+    td {
+        background-color: 
+    }
+
+
+    .voltar{
+    padding: 8px 15px;
+    background-color:#b6e9fd;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    } 
+    </style>
+
 </head>
 <body>
     <h2>Lista de Usuários</h2>
@@ -47,7 +91,7 @@
             <button type="submit">Pesquisar</button>
         </form>
         <?php if(!empty($usuarios)): ?>
-            <table border="1">
+            <table>
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
@@ -72,7 +116,7 @@
             </table>
         <?php else:?>
             <p>Nenhum usuário encontrado</p>
-        <?php endif;?>
-            <a href="principal.php">VOLTAR</a>
+        <?php endif;?></br>
+            <a class="voltar" href="principal.php">Voltar</a>
 </body>
 </html>
