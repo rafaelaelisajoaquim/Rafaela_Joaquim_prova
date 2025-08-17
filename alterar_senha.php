@@ -45,10 +45,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Senha</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+            .footer {
+            background-color: #333;
+            padding: 20px;
+            margin-top: auto;
+            margin-left: -10px;
+            margin-right: -10px;
+            width: calc(100% + 20px);
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer p {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 14px;
+        } 
+    </style>
 </head>
 <body>
     <h2>Alterar Senha</h2>
-    <p>Olá,<strong><?php echo $_SESSION['usuario'];?></strong> digite sua nova senha abaixo:</p>
+    <p>Olá, <strong><?php echo $_SESSION['usuario'];?></strong> digite sua nova senha abaixo:</p>
     <form action="alterar_senha.php" method="POST">
 
     <label for="nova_senha">Nova senha:</label>
@@ -72,5 +93,9 @@
         senha2.type=tipo;
         }
     </script>
+
+    <footer class="footer">
+            <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+    </footer>
 </body>
 </html>
