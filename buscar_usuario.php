@@ -39,84 +39,124 @@
     <title>Buscar Usuário</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-
-    body {
+        body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
         text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .content {
+        flex: 1;
     }
 
     table {
-        background-color:#b6e9fd;
-        border-radius: 10px;
-        padding: 8px 15px;
-        margin: 0 auto;
-        margin:20px auto;
-        border-collapse: collapse;
-        overflow: hidden;
-        width: 50%;
-    }
+            background-color: white;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin: 20px auto;
+            border-collapse: collapse;
+            overflow: hidden;
+            width: 70%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
 
-    th, td, tr {
-        text-align: center;
-        padding: 12px;
-    }
+        th, td, tr {
+            text-align: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
 
-    th {
-        background-color:rgb(119, 173, 238);
-    }
-    
-    td {
-        background-color: 
-    }
+        th {
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
+        td {
+            background-color: white;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
 
-    .voltar{
-    padding: 8px 15px;
-    background-color:#b6e9fd;
-    color: black;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    text-decoration: none;
-    } 
+        .acoes a {
+            text-decoration: none;
+        }
+
+        .voltar{
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .footer {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 0;
+        }
+
+        .footer p {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 14px;
+        } 
     </style>
-
 </head>
-<body>
-    <h2>Lista de Usuários</h2>
-        <form action="buscar_usuario.php" method="POST">
-            <label for="busca">Digite o ID ou NOME (opcional)</label>
-            <input type="text" id="busca" name="busca">
-            <button type="submit">Pesquisar</button>
-        </form>
-        <?php if(!empty($usuarios)): ?>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Perfil</th>
-                    <th>Ações</th>
-                </tr>
-                <?php foreach($usuarios as $usuario): ?>
-                    <tr>
-                    <td><?= htmlspecialchars($usuario['id_usuario'])?></td>
-                    <td><?= htmlspecialchars($usuario['nome'])?></td>
-                    <td><?= htmlspecialchars($usuario['email'])?></td>
-                    <td><?= htmlspecialchars($usuario['id_perfil'])?></td>
-                    <td>
-                        <a href="alterar_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>">Alterar</a>
-
-                        <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>
-                        "onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
-        <?php else:?>
-            <p>Nenhum usuário encontrado</p>
-        <?php endif;?></br>
-            <a class="voltar" href="principal.php">Voltar</a>
-</body>
+    <body>
+        <div class="content">
+            <h2>Lista de Usuários</h2>
+                <form action="buscar_usuario.php" method="POST">
+                    <label for="busca">Digite o ID ou NOME (opcional)</label>
+                    <input type="text" id="busca" name="busca">
+                    <button type="submit">Pesquisar</button>
+                </form>
+                <?php if(!empty($usuarios)): ?>
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Perfil</th>
+                            <th>Ações</th>
+                        </tr>
+                        <?php foreach($usuarios as $usuario): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($usuario['id_usuario'])?></td>
+                                <td><?= htmlspecialchars($usuario['nome'])?></td>
+                                <td><?= htmlspecialchars($usuario['email'])?></td>
+                                <td><?= htmlspecialchars($usuario['id_perfil'])?></td>
+                                <td class="acoes">
+                                    <a href="alterar_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>">Alterar</a>
+                                    |
+                                    <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>
+                                    "onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                <?php else:?>
+                    <p>Nenhum usuário encontrado</p>
+                    <?php endif;?>
+                <a class="voltar" href="principal.php">Voltar</a>
+        </div>
+        
+        <footer class="footer">
+            <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+        </footer>
+    </body>
 </html>
