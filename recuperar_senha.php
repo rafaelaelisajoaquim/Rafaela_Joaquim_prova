@@ -42,6 +42,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Recuperar Senha </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .voltar{
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        text-decoration: none;
+    } 
+
+    .footer {
+            background-color: #333;
+            padding: 20px;
+            margin-top: auto;
+            margin-left: -10px;
+            margin-right: -10px;
+            width: calc(100% + 20px);
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer p {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 14px;
+        } 
+    </style>
 </head>
 <body>
     <h2> Recuperar Senha </h2>
@@ -50,7 +82,12 @@
         <label for="email"> Digite seu e-mail cadastrado: </label>
         <input type="email" id="email" name="email" required />
 
-        <button type="submit"> Enviar a senha temporária</button>
+        <button type="submit">Enviar senha temporária</button>
     </form>
-</body>
+    <a class="voltar" href="index.php">Voltar</a>
+
+        <footer class="footer">
+                <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+        </footer>
+    </body>
 </html>
