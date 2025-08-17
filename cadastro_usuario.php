@@ -37,6 +37,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Cadastrar Usuário </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 80px;
+        }
+
+        .voltar{
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+        } 
+
+        .footer {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer p {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 14px;
+        } 
+    </style>
 </head>
 <body>
     <h2> Cadastrar Usuário </h2>
@@ -62,6 +104,9 @@
         <button type="reset"> Cancelar </button>
     </form>
 
-    <a href="principal.php"> Voltar </a>
+    <a class="voltar" href="principal.php">Voltar</a>
+    <footer class="footer">
+    <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+    </footer>
 </body>
 </html>
