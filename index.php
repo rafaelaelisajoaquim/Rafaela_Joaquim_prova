@@ -46,6 +46,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .botao_senha {
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        text-decoration: none;
+        }
+
+        .footer {
+            background-color: #333;
+            padding: 20px;
+            margin-top: auto;
+            margin-left: -10px;
+            margin-right: -10px;
+            width: calc(100% + 20px);
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer p {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 14px;
+        } 
+    </style>
 </head>
 <body>
     <h2>Login</h2>
@@ -60,7 +92,9 @@
         <button type="submit">Entrar</button>
     </form>
 
-    <p><a href="recuperar_senha.php">Esqueci a senha</a></p>
-    
+    <p><a class="botao_senha" href="recuperar_senha.php">Esqueci a senha</a></p>
+    <footer class="footer">
+            <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+    </footer>
 </body>
 </html>
