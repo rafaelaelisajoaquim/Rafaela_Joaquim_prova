@@ -46,51 +46,93 @@
     <link rel="stylesheet" href="styles.css">
     <!-- CERTIFIQUE-SE DE QUE O JS ESTEJA SENDO CARREGADO CORRETAMENTE -->
     <script src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 80px;
+        }
+
+        .voltar{
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+        } 
+
+        .footer {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer p {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 14px;
+        } 
+    </style>
 </head>
-<body>
-    <h2>Alterar Usuário</h2>
-    <form action="alterar_usuario.php" method="POST">
-        <label for="busca_usuario">Digite o ID ou NOME do usuário</label>
-        <input type="text" id="busca_usuario" name="busca_usuario" required onkeyup="buscarSugestoes()">
+    <body>
+        <h2>Alterar Usuário</h2>
+        <form action="alterar_usuario.php" method="POST">
+            <label for="busca_usuario">Digite o ID ou NOME do usuário</label>
+            <input type="text" id="busca_usuario" name="busca_usuario" required onkeyup="buscarSugestoes()">
 
-        <!-- div PARA SUGESTÕES DE USUÁRIOS -->
-        <div id="sugestoes"></div>
-        <button type="submit">Buscar</button>
-    </form> 
+            <!-- div PARA SUGESTÕES DE USUÁRIOS -->
+            <div id="sugestoes"></div>
+            <button type="submit">Buscar</button>
+        </form> 
 
-    <?php if($usuario): ?>
-        <!-- FORM PARA ALTERAR USUARIO -->
-         <form action="processa_alteracao_usuario.php" method="POST">
-            <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario'])?>">
+        <?php if($usuario): ?>
+            <!-- FORM PARA ALTERAR USUARIO -->
+             <form action="processa_alteracao_usuario.php" method="POST">
+                <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario'])?>">
 
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="<?=htmlspecialchars($usuario['nome'])?>" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?=htmlspecialchars($usuario['email'])?>" required>
 
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="<?=htmlspecialchars($usuario['nome'])?>" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?=htmlspecialchars($usuario['email'])?>" required>
+            <label for="id_perfil">Perfil:</label>
+            <select id="id_perfil" name="id_perfil">
+                <option value="1"<?=$usuario['id_perfil']== 1 ?'select':''?>>Administrador</option>
+                <option value="2"<?=$usuario['id_perfil']== 2 ?'select':''?>>Secretario</option>
+                <option value="3"<?=$usuario['id_perfil']== 3 ?'select':''?>>Almoxarife</option>
+                <option value="4"<?=$usuario['id_perfil']== 4 ?'select':''?>>Cliente</option>
+            </select>
 
-        <label for="id_perfil">Perfil:</label>
-        <select id="id_perfil" name="id_perfil">
-            <option value="1"<?=$usuario['id_perfil']== 1 ?'select':''?>>Administrador</option>
-            <option value="2"<?=$usuario['id_perfil']== 2 ?'select':''?>>Secretario</option>
-            <option value="3"<?=$usuario['id_perfil']== 3 ?'select':''?>>Almoxarife</option>
-            <option value="4"<?=$usuario['id_perfil']== 4 ?'select':''?>>Cliente</option>
-        </select>
+        <!-- SE O USUARIO FOR ADM, EXIBIR OPÇAO DE ALTERAR SENHA -->
+         <?php if($_SESSION['perfil'] == 1 ): ?>
+                <label for='nova_senha'>Nova Senha</label>
+                <input type="password" id="nova_senha" name="nova_senha">
+            <?php endif; ?>
 
-    <!-- SE O USUARIO FOR ADM, EXIBIR OPÇAO DE ALTERAR SENHA -->
-     <?php if($_SESSION['perfil'] == 1 ): ?>
-            <label for='nova_senha'>Nova Senha</label>
-            <input type="password" id="nova_senha" name="nova_senha">
-        <?php endif; ?>
+            <button type="submit">Alterar</button>
+            <button type="reset">Cancelar</button>
+        </form>
+            <?php endif; ?>
+            <a class="voltar" href="principal.php">Voltar</a>
 
-        <button type="submit">Alterar</button>
-        <button type="reset">Cancelar</button>
-    </form>
-        <?php endif; ?>
-        <a href="principal.php">Voltar</a>
-
-
-    
-</body>
+        <footer class="footer">
+            <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+        </footer>
+    </body>
 </html>
