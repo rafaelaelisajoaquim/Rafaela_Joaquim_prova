@@ -50,7 +50,7 @@
             min-height: 100vh;
             margin: 0;
             padding: 0;
-            padding-bottom: 20px;
+            padding-bottom: 80px;
         }
 
         table {
@@ -95,6 +95,8 @@
             border-radius: 4px;
             font-size: 14px;
             text-decoration: none;
+            display: inline-block;
+            margin: 10px;
         } 
         
         .footer {
