@@ -93,6 +93,7 @@
     </form>
 
     <p><a class="botao_senha" href="recuperar_senha.php">Esqueci a senha</a></p>
+    
     <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
     </footer>
