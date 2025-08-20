@@ -49,66 +49,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Principal</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- CERTIFIQUE-SE DE QUE O JS ESTEJA SENDO CARREGADO CORRETAMENTE -->
     <script src="scripts.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding-bottom: 80px;
-        }
-
         .footer {
             background-color: #333;
-            padding: 20px;
-            margin-top: auto;
-            margin-left: -10px;
-            margin-right: -10px;
-            width: calc(100% + 20px);
-            box-sizing: border-box;
-            position: fixed;
-            bottom: 0;
-            left: 0;
+            color:white;
+            padding: 15px;
+            margin-top: 225px;
+            font-size:14px;
         }
-
-        .footer p {
-            text-align: center;
-            color: white;
-            margin: 0;
-            font-size: 14px;
-        } 
     </style>
 </head>
-<body>
-    <header>
-        <div class="saudacao">
-            <h2> Bem Vindo, <?php  echo $_SESSION["usuario"]; ?>! Perfil: 
-            <?php echo $nome_perfil; ?> </h2>
-        </div>
+    <body>
+        <header>
+            <div class="saudacao">
+                <h2> Bem Vindo, <?php  echo $_SESSION["usuario"]; ?>! Perfil: 
+                <?php echo $nome_perfil; ?> </h2>
+            </div>
 
-        <div class="logout">
-            <form action="logout.php" method="POST">
-                <button type="submit">Logout</button>
-            </form>
-        </div>
-    </header>
-    <nav>   
-        <ul class="menu">
-            <?php foreach($opcoes_menu as $categoria => $arquivos): ?>
-                <li class="dropdown">
-                    <a href="#"><?=$categoria ?></a>
-                    <ul class="dropdown-menu">
-                        <?php foreach($arquivos as $arquivo): ?>
-                            <li>
-                                <a href="<?=$arquivo ?>">
-                                <?=ucfirst(str_replace("_"," ",basename($arquivo,".php"))); ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </li>
-            <?php endforeach; ?>
-        </ul>    
-    </nav>
-    <footer class="footer">
+            <div class="logout">
+                <form action="logout.php" method="POST">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </header>
+        <nav>   
+            <ul class="menu">
+                <?php foreach($opcoes_menu as $categoria => $arquivos): ?>
+                    <li class="dropdown">
+                        <a href="#"><?=$categoria ?></a>
+                        <ul class="dropdown-menu">
+                            <?php foreach($arquivos as $arquivo): ?>
+                                <li>
+                                    <a href="<?=$arquivo ?>">
+                                    <?=ucfirst(str_replace("_"," ",basename($arquivo,".php"))); ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                <?php endforeach; ?>
+            </ul>    
+        </nav>
+        <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
-    </footer>
-</body>
+        </footer>
+    </body>
 </html>
