@@ -95,8 +95,7 @@
             font-size: 14px;
             color: white;
             padding: 15px;
-            margin-top: 150px;
-            position: relative;
+            margin-top: 170px;
         }
     </style>
 </head>
@@ -159,8 +158,8 @@
             <?php endif; ?>
             <a class="voltar" href="principal.php">Voltar</a>
 
-        <script>
-            const nomeInput = document.getElementById("nome");
+            <script>
+                const nomeInput = document.getElementById("nome");
 
                 // Bloquear símbolos e números no campo nome
                 nomeInput.addEventListener("input", function() {
@@ -170,6 +169,7 @@
                 document.getElementById("formAltera").addEventListener("submit", function(e) {
                     const nome = nomeInput.value.trim();
                     const email = document.getElementById("email").value.trim();
+                    const senhaInput = document.getElementById("nova_senha"); // pega o campo se existir
 
                     // Validação do nome (mínimo 3 letras)
                     if (nome.length < 3) {
@@ -185,8 +185,16 @@
                         e.preventDefault();
                         return;
                     }
+
+                    // Se o campo de senha existir e não estiver vazio, validar tamanho
+                    if (senhaInput && senhaInput.value.trim() !== "" && senhaInput.value.length < 8) {
+                        alert("A senha deve ter pelo menos 8 caracteres.");
+                        e.preventDefault();
+                        return;
+                    }
                 });
-        </script>
+            </script>
+
     <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
     </footer>
