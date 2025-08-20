@@ -46,56 +46,56 @@
     <title>Alterar Senha</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-            .footer {
-            background-color: #333;
-            padding: 20px;
-            margin-top: auto;
-            margin-left: -10px;
-            margin-right: -10px;
-            width: calc(100% + 20px);
-            box-sizing: border-box;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-        }
-
-        .footer p {
-            text-align: center;
+        .cancelar{
+            background-color: #007bff;
+            padding: 8px 15px;
             color: white;
-            margin: 0;
             font-size: 14px;
+            border-radius: 4px;
+            text-decoration: none;
+        } 
+
+        .footer {
+            background-color: #333;
+            color:white;
+            padding: 15px;
+            margin-top: 13px;
+            font-size:14px;
         } 
     </style>
 </head>
-<body>
-    <h2>Alterar Senha</h2>
-    <p>Olá, <strong><?php echo $_SESSION['usuario'];?></strong> digite sua nova senha abaixo:</p>
-    <form action="alterar_senha.php" method="POST">
+    <body>
+        <h2>Alterar Senha</h2>
+        <p>Olá, <strong><?php echo $_SESSION['usuario'];?></strong> digite sua nova senha abaixo:</p>
 
-    <label for="nova_senha">Nova senha:</label>
-    <input type="password" id="nova_senha" name="nova_senha" required>
+        <form action="alterar_senha.php" method="POST">
 
-    <label for="confirmar_senha">Confirmar nova senha:</label>
-    <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+            <label for="nova_senha">Nova senha:</label>
+            <input type="password" id="nova_senha" name="nova_senha" required>
 
-    <label> 
-    <input type="checkbox" onclick="mostrarSenha()">Mostrar Senha
-    </label>
+            <label for="confirmar_senha">Confirmar nova senha:</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" required>
 
-    <button type="submit">Salvar Nova Senha</button>
-</form>
-    <script>
-        function mostrarSenha(){
-        var senha1 = document.getElementById("nova_senha");
-        var senha2 = document.getElementById("confirmar_senha");
-        var tipo = senha1.type === "password" ? "text":"password";
-        senha1.type=tipo;
-        senha2.type=tipo;
-        }
-    </script>
+            <label> 
+            <input type="checkbox" onclick="mostrarSenha()">Mostrar Senha
+            </label>
 
-    <footer class="footer">
-            <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
-    </footer>
-</body>
+            <button type="submit">Salvar Nova Senha</button>
+        </form>
+
+            <a class="cancelar" href="index.php">Cancelar</a>
+
+        <script>
+            function mostrarSenha(){
+                var senha1 = document.getElementById("nova_senha");
+                var senha2 = document.getElementById("confirmar_senha");
+                var tipo = senha1.type === "password" ? "text":"password";
+                senha1.type=tipo;
+                senha2.type=tipo;
+            }
+        </script>
+        <footer class="footer">
+                <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+        </footer>
+    </body>
 </html>
