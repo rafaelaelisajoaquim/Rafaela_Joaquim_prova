@@ -72,20 +72,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuário</title>
     <link rel="stylesheet" href="styles.css">
-    
     <style>
-        body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-
-
     table {
             background-color: white;
             border-radius: 10px;
@@ -122,33 +109,24 @@
         }
 
         .voltar{
-            padding: 8px 15px;
             background-color: #007bff;
+            padding: 8px 15px;
             color: white;
-            border: none;
-            border-radius: 4px;
             font-size: 14px;
+            border-radius: 4px;
             text-decoration: none;
-        }
+        } 
 
         .footer {
             background-color: #333;
-            padding: 20px;
-            margin-top: 30px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 0;
+            color:white;
+            padding: 15px;
+            margin-top: 20px;
+            font-size:14px;
         }
-
-        .footer p {
-            text-align: center;
-            color: white;
-            margin: 0;
-            font-size: 14px;
-        } 
     </style>
 </head>
-    <body>
+<body>
     <nav>
         <ul class="menu">
                 <?php foreach($opcoes_menu as $categoria => $arquivos): ?>
@@ -167,42 +145,47 @@
             </ul>    
         </nav>
         <div class="content">
-            <h2>Lista de Usuários</h2>
-                <form action="buscar_usuario.php" method="POST">
-                    <label for="busca">Digite o ID ou NOME (opcional)</label>
-                    <input type="text" id="busca" name="busca">
-                    <button type="submit">Pesquisar</button>
-                </form>
-                <?php if(!empty($usuarios)): ?>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Perfil</th>
-                            <th>Ações</th>
-                        </tr>
-                        <?php foreach($usuarios as $usuario): ?>
-                            <tr>
-                                <td><?= htmlspecialchars($usuario['id_usuario'])?></td>
-                                <td><?= htmlspecialchars($usuario['nome'])?></td>
-                                <td><?= htmlspecialchars($usuario['email'])?></td>
-                                <td><?= htmlspecialchars($usuario['id_perfil'])?></td>
-                                <td class="acoes">
-                                    <a href="alterar_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>">Alterar</a>
-                                    |
-                                    <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>
-                                    "onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </table>
-                <?php else:?>
+                    <h2>Lista de Usuários</h2>
+                        <form action="buscar_usuario.php" method="POST">
+                            <label for="busca">Digite o ID ou NOME (opcional)</label>
+                            <input type="text" id="busca" name="busca">
+                            <button type="submit">Pesquisar</button>
+                        </form>
+                        <?php if(!empty($usuarios)): ?>
+                            <table>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Perfil</th>
+                                    <th>Ações</th>
+                                </tr>
+                                <?php foreach($usuarios as $usuario): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($usuario['id_usuario'])?></td>
+                                        <td><?= htmlspecialchars($usuario['nome'])?></td>
+                                        <td><?= htmlspecialchars($usuario['email'])?></td>
+                                        <td><?= htmlspecialchars($usuario['id_perfil'])?></td>
+                                        <td class="acoes">
+                                            <a href="alterar_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>">Alterar</a>
+                                            |
+                                            <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario'])?>"
+                                            onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </table>
+                        <?php else:?>
                     <p>Nenhum usuário encontrado</p>
-                    <?php endif;?>
+                <?php endif;?>
                 <a class="voltar" href="principal.php">Voltar</a>
         </div>
-        
+        <script>
+            // Bloquear símbolos no campo de busca (permitir só letras, números e espaços)
+            document.getElementById("busca").addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-ZÀ-ÿ0-9\s]/g, "");
+            });
+        </script>
         <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
         </footer>
