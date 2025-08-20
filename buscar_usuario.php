@@ -180,12 +180,6 @@
                 <?php endif;?>
                 <a class="voltar" href="principal.php">Voltar</a>
         </div>
-        <script>
-            // Bloquear símbolos no campo de busca (permitir só letras, números e espaços)
-            document.getElementById("busca").addEventListener("input", function() {
-                this.value = this.value.replace(/[^a-zA-ZÀ-ÿ0-9\s]/g, "");
-            });
-        </script>
         <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
         </footer>
