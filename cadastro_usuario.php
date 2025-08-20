@@ -117,7 +117,7 @@
             <input type="email" name="email" id="email" required>
 
             <label for="senha"> Senha: </label>
-            <input type="password" name="senha" id="senha" required>
+            <input type="password" id="senha" name="senha" required>
 
             <label for="id_perfil"> Perfil: </label>
             <select name="id_perfil" id="id_perfil" required>
@@ -144,6 +144,7 @@
             document.getElementById("formCadastro").addEventListener("submit", function(e) {
                 const nome = nomeInput.value.trim();
                 const email = document.getElementById("email").value.trim();
+                const senha = document.getElementById("senha").value; // <<< pegando o valor da senha
 
                 // Validação do nome (mínimo 3 letras)
                 if (nome.length < 3) {
@@ -159,8 +160,16 @@
                     e.preventDefault();
                     return;
                 }
+
+                // Validação da senha (mínimo 8 caracteres)
+                if (senha.length < 8) {
+                    alert("A senha deve ter pelo menos 8 caracteres.");
+                    e.preventDefault();
+                    return;
+                }
             });
         </script>
+
         <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
         </footer>
