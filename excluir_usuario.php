@@ -75,19 +75,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excluir Usuário</title>
     <link rel="stylesheet" href="styles.css">
-    
     <style>
-            body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            position: relative;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            padding-bottom: 80px;
-        }
-
         table {
             background-color: white;
             border-radius: 10px;
@@ -123,34 +111,24 @@
         }
 
         .voltar{
-            padding: 8px 15px;
             background-color: #007bff;
+            padding: 8px 15px;
             color: white;
-            border: none;
-            border-radius: 4px;
             font-size: 14px;
+            border-radius: 4px;
             text-decoration: none;
-            display: inline-block;
-            margin: 10px;
         } 
         
         .footer {
             background-color: #333;
-            margin-top: 10px;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            position: absolute;
+            color:white;
+            padding: 15px;
+            margin-top: 20px;
+            font-size:14px;
         }
-
-        .footer p {
-            text-align: center;
-            color: white;
-            font-size: 14px;
-        } 
     </style>
 </head>
-    <body>
+<body>
 <nav>
     <ul class="menu">
             <?php foreach($opcoes_menu as $categoria => $arquivos): ?>
@@ -194,8 +172,8 @@
         <p>Nenhum usuário encontrado</p>
     <?php endif; ?>
 <a class="voltar" href="principal.php">Voltar</a>
+        <footer class="footer">
+            <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+        </footer>
     </body>
-<footer class="footer">
-    <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
-</footer>
 </html>
