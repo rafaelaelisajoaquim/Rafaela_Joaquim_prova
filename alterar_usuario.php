@@ -81,46 +81,23 @@
     <!-- CERTIFIQUE-SE DE QUE O JS ESTEJA SENDO CARREGADO CORRETAMENTE -->
     <script src="script.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            position: relative;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            padding-bottom: 80px;
-        }
-
         .voltar{
-            padding: 8px 15px;
             background-color: #007bff;
+            padding: 8px 15px;
             color: white;
-            border: none;
-            border-radius: 4px;
             font-size: 14px;
-            font-family: Arial, sans-serif;
+            border-radius: 4px;
             text-decoration: none;
         } 
 
         .footer {
             background-color: #333;
-            padding: 20px;
-            margin-top: 30px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 0;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-
-        .footer p {
-            text-align: center;
-            color: white;
-            margin: 0;
             font-size: 14px;
-        } 
+            color: white;
+            padding: 15px;
+            margin-top: 150px;
+            position: relative;
+        }
     </style>
 </head>
     <body>
@@ -140,8 +117,8 @@
                         </li>
                     <?php endforeach; ?>
                 </ul>    
-        </nav>
-        <h2>Alterar Usuário</h2>
+            </nav>
+    <h2>Alterar Usuário</h2>
         <form action="alterar_usuario.php" method="POST">
             <label for="busca_usuario">Digite o ID ou NOME do usuário</label>
             <input type="text" id="busca_usuario" name="busca_usuario" required onkeyup="buscarSugestoes()">
@@ -153,8 +130,8 @@
 
         <?php if($usuario): ?>
             <!-- FORM PARA ALTERAR USUARIO -->
-             <form action="processa_alteracao_usuario.php" method="POST">
-                <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario'])?>">
+            <form id="formAltera" action="processa_alteracao_usuario.php" method="POST">
+            <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario'])?>">
 
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" value="<?=htmlspecialchars($usuario['nome'])?>" required>
@@ -182,8 +159,36 @@
             <?php endif; ?>
             <a class="voltar" href="principal.php">Voltar</a>
 
-        <footer class="footer">
+        <script>
+            const nomeInput = document.getElementById("nome");
+
+                // Bloquear símbolos e números no campo nome
+                nomeInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, "");
+                });
+
+                document.getElementById("formAltera").addEventListener("submit", function(e) {
+                    const nome = nomeInput.value.trim();
+                    const email = document.getElementById("email").value.trim();
+
+                    // Validação do nome (mínimo 3 letras)
+                    if (nome.length < 3) {
+                        alert("O nome deve ter pelo menos 3 letras.");
+                        e.preventDefault(); 
+                        return;
+                    }
+
+                    // Validação do email com regex simples
+                    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!regexEmail.test(email)) {
+                        alert("Digite um e-mail válido.");
+                        e.preventDefault();
+                        return;
+                    }
+                });
+        </script>
+    <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
-        </footer>
+    </footer>
     </body>
 </html>
