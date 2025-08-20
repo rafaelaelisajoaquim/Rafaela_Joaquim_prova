@@ -72,87 +72,95 @@
     <title> Cadastrar Usuário </title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            position: relative;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            padding-bottom: 80px;
-        }
-
         .voltar{
-            padding: 8px 15px;
             background-color: #007bff;
+            padding: 8px 15px;
             color: white;
-            border: none;
-            border-radius: 4px;
             font-size: 14px;
-            font-family: Arial, sans-serif;
+            border-radius: 4px;
             text-decoration: none;
         } 
 
         .footer {
             background-color: #333;
-            margin-top: 10px;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            position: absolute;
+            color:white;
+            padding: 15px;
+            margin-top: 20px;
+            font-size:14px;
         }
-
-        .footer p {
-            text-align: center;
-            color: white;
-            font-size: 14px;
-        }  
     </style>
 </head>
-<body>
-<nav>
-    <ul class="menu">
-            <?php foreach($opcoes_menu as $categoria => $arquivos): ?>
-                <li class="dropdown">
-                    <a href="#"><?=$categoria ?></a>
-                    <ul class="dropdown-menu">
-                        <?php foreach($arquivos as $arquivo): ?>
-                            <li>
-                                <a href="<?=$arquivo ?>">
-                                <?=ucfirst(str_replace("_"," ",basename($arquivo,".php"))); ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </li>
-            <?php endforeach; ?>
-        </ul>    
-    </nav>
-    <h2> Cadastrar Usuário </h2>
-    <form action="cadastro_usuario.php" method="POST">
-        <label for="nome"> Nome: </label>
-        <input type="text" name="nome" id="nome" required>
+    <body>
+        <nav>
+            <ul class="menu">
+                    <?php foreach($opcoes_menu as $categoria => $arquivos): ?>
+                        <li class="dropdown">
+                            <a href="#"><?=$categoria ?></a>
+                            <ul class="dropdown-menu">
+                                <?php foreach($arquivos as $arquivo): ?>
+                                    <li>
+                                        <a href="<?=$arquivo ?>">
+                                        <?=ucfirst(str_replace("_"," ",basename($arquivo,".php"))); ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>    
+            </nav>
+        <h2> Cadastrar Usuário </h2>
+        <form id="formCadastro" action="cadastro_usuario.php" method="POST">
+            <label for="nome"> Nome: </label>
+            <input type="text" name="nome" id="nome" required>
 
-        <label for="email"> E-mail: </label>
-        <input type="email" name="email" id="email" required>
+            <label for="email"> E-mail: </label>
+            <input type="email" name="email" id="email" required>
 
-        <label for="senha"> Senha: </label>
-        <input type="password" name="senha" id="senha" required>
+            <label for="senha"> Senha: </label>
+            <input type="password" name="senha" id="senha" required>
 
-        <label for="id_perfil"> Perfil: </label>
-        <select name="id_perfil" id="id_perfil" required>
-            <option value="1"> Administrador </option>
-            <option value="2"> Secretária </option>
-            <option value="3"> Funcionário </option>
-            <option value="4"> Cliente </option>
-        </select>
+            <label for="id_perfil"> Perfil: </label>
+            <select name="id_perfil" id="id_perfil" required>
+                <option value="1"> Administrador </option>
+                <option value="2"> Secretária </option>
+                <option value="3"> Funcionário </option>
+                <option value="4"> Cliente </option>
+            </select>
 
-        <button type="submit"> Salvar </button>
-        <button type="reset"> Cancelar </button>
-    </form>
+            <button type="submit"> Salvar </button>
+            <button type="reset"> Cancelar </button>
+        </form>
 
-    <a class="voltar" href="principal.php">Voltar</a>
+        <a class="voltar" href="principal.php">Voltar</a>
 
+        <script>
+            const nomeInput = document.getElementById("nome");
+
+            // Bloquear símbolos e números no campo nome
+            nomeInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, "");
+            });
+
+            document.getElementById("formCadastro").addEventListener("submit", function(e) {
+                const nome = nomeInput.value.trim();
+                const email = document.getElementById("email").value.trim();
+
+                // Validação do nome (mínimo 3 letras)
+                if (nome.length < 3) {
+                    alert("O nome deve ter pelo menos 3 letras.");
+                    e.preventDefault(); 
+                    return;
+                }
+
+                // Validação do email com regex simples
+                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!regexEmail.test(email)) {
+                    alert("Digite um e-mail válido.");
+                    e.preventDefault();
+                    return;
+                }
+            });
+        </script>
         <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
         </footer>
