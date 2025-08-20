@@ -123,12 +123,12 @@
             background-color: #333;
             color:white;
             padding: 15px;
-            margin-top: 20px;
+            margin-top:20px;
             font-size:14px;
         }
     </style>
 </head>
-<body>
+    <body>
 <nav>
     <ul class="menu">
             <?php foreach($opcoes_menu as $categoria => $arquivos): ?>
@@ -172,8 +172,8 @@
         <p>Nenhum usuário encontrado</p>
     <?php endif; ?>
 <a class="voltar" href="principal.php">Voltar</a>
-        <footer class="footer">
-            <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
-        </footer>
+    <footer class="footer">
+        <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
+    </footer>
     </body>
 </html>
