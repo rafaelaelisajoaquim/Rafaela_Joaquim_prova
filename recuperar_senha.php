@@ -44,35 +44,21 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .voltar{
-        padding: 8px 15px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-size: 14px;
-        font-family: Arial, sans-serif;
-        text-decoration: none;
-    } 
-
-    .footer {
-            background-color: #333;
-            padding: 20px;
-            margin-top: auto;
-            margin-left: -10px;
-            margin-right: -10px;
-            width: calc(100% + 20px);
-            box-sizing: border-box;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-        }
-
-        .footer p {
-            text-align: center;
+            background-color: #007bff;
+            padding: 8px 15px;
             color: white;
-            margin: 0;
             font-size: 14px;
+            border-radius: 4px;
+            text-decoration: none;
         } 
+
+        .footer {
+            background-color: #333;
+            color:white;
+            padding: 15px;
+            margin-top: 173px;
+            font-size:14px;
+        }
     </style>
 </head>
 <body>
