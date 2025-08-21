@@ -143,6 +143,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
 select {
     width: 80%; /* Ocupa toda a largura do formulário */
     padding: 8px;
