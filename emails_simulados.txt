@@ -46,3 +46,7 @@ Para: ian@ian
 Olá! Sua nova senha temporária é: D7AS6gcM
 
 ----------------------
+Para: admin@admin
+Olá! Sua nova senha temporária é: 8IevNC0Q
+
+----------------------
