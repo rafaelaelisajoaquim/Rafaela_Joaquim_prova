@@ -123,7 +123,7 @@
             background-color: #333;
             color:white;
             padding: 15px;
-            margin-top:20px;
+            margin-top:60px;
             font-size:14px;
         }
     </style>
@@ -146,7 +146,7 @@
             <?php endforeach; ?>
         </ul>    
     </nav>
-        <h2>Excluir Usuário</h2>
+        <h2>Excluir Produto</h2>
             <?php if(!empty($produtos)): ?>
                 <table> 
                     <tr>
