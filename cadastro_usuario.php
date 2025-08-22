@@ -121,9 +121,9 @@
 
             <label for="id_perfil"> Perfil: </label>
             <select name="id_perfil" id="id_perfil" required>
-                <option value="1"> Administrador </option>
-                <option value="2"> Secretária </option>
-                <option value="3"> Funcionário </option>
+                <option value="1"> Administrador(a) </option>
+                <option value="2"> Secretário(a) </option>
+                <option value="3"> Funcionário(a) </option>
                 <option value="4"> Cliente </option>
             </select>
 
@@ -144,7 +144,7 @@
             document.getElementById("formCadastro").addEventListener("submit", function(e) {
                 const nome = nomeInput.value.trim();
                 const email = document.getElementById("email").value.trim();
-                const senha = document.getElementById("senha").value; // <<< pegando o valor da senha
+                const senha = document.getElementById("senha").value;
 
                 // Validação do nome (mínimo 3 letras)
                 if (nome.length < 3) {
