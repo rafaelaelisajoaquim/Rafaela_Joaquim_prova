@@ -63,7 +63,7 @@
         
             4 =>["Cadastrar"=>["cadastro_cliente.php"],
             "Buscar"=>["buscar_produto.php"],
-            "Alterar"=>["alterar_cliente.php"]],      
+            "Alterar"=>["alterar_cliente.php"]],   
         ];
        
            //OBTENDO AS OPÇÕES DISPONIVEIS PARA O PERFIL LOGADO
@@ -94,8 +94,10 @@
             background-color: #333;
             font-size: 14px;
             color: white;
-            padding: 15px;
-            margin-top: 170px;
+            padding: 10px;
+            margin-top: 150px;
+            margin-left: -8px;
+            margin-right: -8px;
         }
     </style>
 </head>
@@ -169,7 +171,7 @@
                 document.getElementById("formAltera").addEventListener("submit", function(e) {
                     const nome = nomeInput.value.trim();
                     const email = document.getElementById("email").value.trim();
-                    const senhaInput = document.getElementById("nova_senha"); // pega o campo se existir
+                    const nova_senhaInput = document.getElementById("nova_senha"); // pega o campo se existir
 
                     // Validação do nome (mínimo 3 letras)
                     if (nome.length < 3) {
@@ -182,13 +184,6 @@
                     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     if (!regexEmail.test(email)) {
                         alert("Digite um e-mail válido.");
-                        e.preventDefault();
-                        return;
-                    }
-
-                    // Se o campo de senha existir e não estiver vazio, validar tamanho
-                    if (senhaInput && senhaInput.value.trim() !== "" && senhaInput.value.length < 8) {
-                        alert("A senha deve ter pelo menos 8 caracteres.");
                         e.preventDefault();
                         return;
                     }
