@@ -15,16 +15,16 @@
 
         //VERIFICA SE A BUSCA É UM NUMERO OU UM NOME
         if(is_numeric($busca)){
-            $sql = "SELECT * FROM produto WHERE id_produto = :busca ORDER BY nome ASC";
+            $sql = "SELECT * FROM produto WHERE id_produto = :busca ORDER BY nome_prod ASC";
             $stmt=$pdo->prepare($sql);
             $stmt->bindParam(':busca', $busca, PDO::PARAM_INT);
         } else {
-                $sql = "SELECT * FROM produto WHERE nome_prod LIKE :busca_nome ORDER BY nome ASC";
+                $sql = "SELECT * FROM produto WHERE nome_prod LIKE :busca_nome ORDER BY nome_prod ASC";
                 $stmt=$pdo->prepare($sql);
                 $stmt->bindValue(':busca_nome', "$busca%", PDO::PARAM_STR);
         }
     } else{
-        $sql = "SELECT * FROM produto ORDER BY nome ASC";
+        $sql = "SELECT * FROM produto ORDER BY nome_prod ASC";
         $stmt=$pdo->prepare($sql);
     }
     $stmt->execute();
@@ -158,18 +158,20 @@
                                     <th>Nome</th>
                                     <th>Descricao</th>
                                     <th>Quantidade</th>
+                                    <th>Valor Unitário</th>
                                     <th>Ações</th>
                                 </tr>
                                 <?php foreach($produtos as $produto): ?>
                                     <tr>
-                                        <td><?= htmlspecialchars($usuario['id_produto'])?></td>
-                                        <td><?= htmlspecialchars($usuario['nome_produto'])?></td>
-                                        <td><?= htmlspecialchars($usuario['descricao'])?></td>
-                                        <td><?= htmlspecialchars($usuario['id_perfil'])?></td>
+                                        <td><?= htmlspecialchars($produto['id_produto'])?></td>
+                                        <td><?= htmlspecialchars($produto['nome_prod'])?></td>
+                                        <td><?= htmlspecialchars($produto['descricao'])?></td>
+                                        <td><?= htmlspecialchars($produto['qtde'])?></td>
+                                        <td><?= htmlspecialchars($produto['valor_unit'])?></td>
                                         <td class="acoes">
-                                            <a href="alterar_produto.php?id=<?= htmlspecialchars($usuario['id_produto'])?>">Alterar</a>
+                                            <a href="alterar_produto.php?id=<?= htmlspecialchars($produto['id_produto'])?>">Alterar</a>
                                             |
-                                            <a href="excluir_produto.php?id=<?= htmlspecialchars($usuario['id_produto'])?>"
+                                            <a href="excluir_produto.php?id=<?= htmlspecialchars($produto['id_produto'])?>"
                                             onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                                         </td>
                                     </tr>
