@@ -57,13 +57,15 @@
             border-radius: 4px;
             text-decoration: none;
         } 
-
+        
         .footer {
             background-color: #333;
-            color:white;
-            padding: 15px;
-            margin-top: 30px;
-            font-size:14px;
+            font-size: 14px;
+            color: white;
+            padding: 10px;
+            margin-top: 45px;
+            margin-left: -8px;
+            margin-right: -8px;
         }
 
     </style>
@@ -74,10 +76,10 @@
 
     <form action="alterar_senha.php" method="POST">
         <label for="nova_senha"> Nova Senha: </label>
-        <input type="password" id="nova_senha" name="nova_senha" required />
+        <input type="password" id="nova_senha" name="nova_senha" required minlength="8"/>
 
         <label for="confirmar_senha"> Confirmar Senha: </label>
-        <input type="password" id="confirmar_senha" name="confirmar_senha" required />
+        <input type="password" id="confirmar_senha" name="confirmar_senha" required minlength="8" />
 
         <label>
             <input type="checkbox" onclick="mostrarSenha()"> Mostrar Senha
@@ -93,7 +95,7 @@
             var tipo = senha1.type === "password" ? "text" : "password";
             senha1.type = tipo;
             senha2.type = tipo;
-        }
+    }
     </script>
         <footer class="footer">
             <p>Rafaela Elisa Joaquim | Desenvolvimento de Sistemas</p>
