@@ -61,7 +61,7 @@
         
             4 =>["Cadastrar"=>["cadastro_cliente.php"],
             "Buscar"=>["buscar_produto.php"],
-            "Alterar"=>["alterar_cliente.php"]],      
+            "Alterar"=>["alterar_cliente.php"]],   
         ];
     
         //OBTENDO AS OPÇÕES DISPONIVEIS PARA O PERFIL LOGADO
@@ -121,10 +121,12 @@
         
         .footer {
             background-color: #333;
-            color:white;
-            padding: 15px;
-            margin-top:40px;
-            font-size:14px;
+            font-size: 14px;
+            color: white;
+            padding: 10px;
+            margin-top: 30px;
+            margin-left: -8px;
+            margin-right: -8px;
         }
     </style>
 </head>
