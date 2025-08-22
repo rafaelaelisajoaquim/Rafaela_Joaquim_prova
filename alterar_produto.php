@@ -132,8 +132,8 @@
             <form id="formProduto" action="processa_alteracao_produto.php" method="POST">
             <input type="hidden" name="id_produto" value="<?=htmlspecialchars($produto['id_produto'])?>">
 
-            <label for="nome_prod">Nome:</label>
-            <input type="text" id="nome_prod" name="nome_prod" value="<?=htmlspecialchars($produto['nome_prod'])?>" required>
+            <label for="nome_prod">Nome do Produto:</label>
+            <input type="text" id="nome_prod" minlength="3" name="nome_prod" value="<?=htmlspecialchars($produto['nome_prod'])?>" required>
             
             <label for="descricao">Descrição:</label>
             <input type="text" id="descricao" name="descricao" value="<?=htmlspecialchars($produto['descricao'])?>" required>
@@ -142,7 +142,7 @@
             <input type="number" id="qtde" name="qtde" value="<?=htmlspecialchars($produto['qtde'])?>" required>
 
             <label for="valor_unit"> Valor Unitário: </label>
-            <input type="number" id="valor_unit" name="valor_unit" value="<?=htmlspecialchars($produto['valor_unit'])?>" required>
+            <input type="number" id="valor_unit" name="valor_unit" min="0" step="0.01" value="<?=htmlspecialchars($produto['valor_unit'])?>" required>
 
             <button type="submit">Alterar</button>
             <button type="reset">Cancelar</button>
@@ -151,24 +151,13 @@
             <a class="voltar" href="principal.php">Voltar</a>
 
         <script>
-            const formProduto = document.getElementById("formProduto");
             formProduto.addEventListener("submit", function(e) {
+                const descricao = document.getElementById("descricao").value.trim();
 
-                const qtde = document.getElementById("qtde").value.trim();
-                const valor_unit = document.getElementById("valor_unit").value.trim();
-
-            // Validação da qtde (número inteiro positivo)
-                if (qtde === "" || isNaN(qtde) || parseInt(qtde) < 1) {
-                    alert("A quantidade deve ser um número inteiro maior que 0.");
-                    e.preventDefault();
-                    return;
-                }
-
-                // Validação do valor_unit unitário (número positivo)
-                if (valor_unit === "" || isNaN(valor_unit) || parseFloat(valor_unit) <= 0) {
-                    alert("O valor_unit unitário deve ser um número maior que 0.");
-                    e.preventDefault();
-                    return;
+                if(descricao.length < 3){
+                alert("A descrição deve ter pelo menos 3 caracteres.");
+                e.preventDefault();
+                return;
                 }
             });
             </script>
