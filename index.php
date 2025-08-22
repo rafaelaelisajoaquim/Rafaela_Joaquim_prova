@@ -58,10 +58,12 @@
 
         .footer {
             background-color: #333;
-            color:white;
-            padding: 15px;
-            margin-top: 115px;
-            font-size:14px;
+            font-size: 14px;
+            color: white;
+            padding: 10px;
+            margin-top: 125px;
+            margin-left: -8px;
+            margin-right: -8px;
         }
     </style>
 </head>
