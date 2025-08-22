@@ -45,7 +45,7 @@
            $nome_perfil = $perfil['nome_perfil'];
        
            //DEFINICAO DAS PERMISSOES POR perfil
-           $permissoes= [
+        $permissoes= [
             1 =>["Cadastrar"=>["cadastro_usuario.php","cadastro_perfil.php","cadastro_cliente.php","cadastro_fornecedor.php","cadastro_produto.php","cadastro_funcionario.php"],
             "Buscar"=>["buscar_usuario.php","buscar_perfil.php","buscar_cliente.php","buscar_fornecedor.php","buscar_produto.php","buscar_funcionario.php"],
             "Alterar"=>["alterar_usuario.php","alterar_perfil.php","alterar_cliente.php","alterar_fornecedor.php","alterar_produto.php","alterar_funcionario.php"],
@@ -63,7 +63,7 @@
         
             4 =>["Cadastrar"=>["cadastro_cliente.php"],
             "Buscar"=>["buscar_produto.php"],
-            "Alterar"=>["alterar_cliente.php"]],      
+            "Alterar"=>["alterar_cliente.php"]],   
         ];
        
            //OBTENDO AS OPÇÕES DISPONIVEIS PARA O PERFIL LOGADO
@@ -94,8 +94,10 @@
             background-color: #333;
             font-size: 14px;
             color: white;
-            padding: 15px;
-            margin-top: 170px;
+            padding: 10px;
+            margin-top: 150px;
+            margin-left: -8px;
+            margin-right: -8px;
         }
     </style>
 </head>
